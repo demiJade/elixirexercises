@@ -1,0 +1,6 @@
+[a,b,a] = [1,2,3] - not match
+[a,b,a] = [1,1,2] - not match
+a = 1 - match
+^a = 2 - not match
+^a = 1 - match
+^a = 2 - a - match
