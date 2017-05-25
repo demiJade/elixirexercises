@@ -11,7 +11,7 @@ defmodule Order do
 			[ id: 128, ship_to: :MA, net_amount: 10.00 ],
 			[ id: 129, ship_to: :CA, net_amount: 102.00 ],
 			[ id: 120, ship_to: :NC, net_amount: 50.00 ] ]
-		final_orders = for order <- orders, {state, tax_rate} <- tax_rates, !List.keymember?(tax_rates, order[:ship_to], 0) do
+		final_orders = for order <- orders, !List.keymember?(tax_rates, order[:ship_to], 0) do
 			order ++ [total_amount: order[:net_amount]]
 		end
 		final_orders ++ for order <- orders, {state, tax_rate} <- tax_rates, order[:ship_to] == state do
