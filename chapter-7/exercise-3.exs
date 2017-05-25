@@ -5,7 +5,6 @@ defmodule MyList do
     else
       [head + n] ++ caesar(tail, n)
     end
-    
   end
   def caesar([], _), do: []
 end

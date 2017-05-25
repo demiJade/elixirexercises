@@ -23,14 +23,8 @@ end
 defmodule ListPrime do
 	def primes(n) do
 		span = MyList.span(2, n)
-		
-	end
-	def checkComposite(number), do: _checkComposite(number, number / 2)
-	def _checkComposite(_, 1) do
-		false
-	end
-	def _checkComposite(number, divisor) do
-		rem(number, divisor) == 0 || _checkComposite(number, divisor - 1)
+		products = for x <- span, y <- span, x >= y, x * y <= n, do: x * y
+		span -- products
 	end
 end
 
