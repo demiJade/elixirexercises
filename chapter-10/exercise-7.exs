@@ -20,7 +20,17 @@ defmodule MyList do
   end
 end
 
-IO.inspect MyList.span(2,3)
-IO.inspect MyList.span(1,5)
-IO.inspect MyList.span(5,1)
-IO.inspect MyList.span(1,1)
+defmodule ListPrime do
+	def primes(n) do
+		span = MyList.span(2, n)
+		
+	end
+	def checkComposite(number), do: _checkComposite(number, number / 2)
+	def _checkComposite(_, 1) do
+		false
+	end
+	def _checkComposite(number, divisor) do
+		rem(number, divisor) == 0 || _checkComposite(number, divisor - 1)
+	end
+end
+
